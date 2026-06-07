@@ -67,6 +67,7 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=[PATH/TO/SCRIPT]/DeauthScript.sh
+TimeoutStartSec=0
 
 [Install]
 WantedBy=multi-user.target
