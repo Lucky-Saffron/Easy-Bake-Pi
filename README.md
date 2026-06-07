@@ -13,17 +13,6 @@ The hardware consists of a raspberry pi, preferably a 4 or 5, an Alfa USB extern
 The software requirements are: KISMET and the AIRCRACK-NG suite of tools (specifically airmon-ng and aireplay-ng), as well as any drivers needed to support the Alfa WiFi card, and/or GPS module.
 - Flashing an SD card with Kali Linux is probably the easiest way to get everything setup. A headless Kali image will reduce time-to-boot, but a head-on Kali image makes it easier to analyze the captured data afterwards. Both work fine, though.
 
-# Disabling onboard WiFi
-It is important to disable the onboard WiFi on the Pi (which is a broadcom chip, from what I've seen). This is to decrease the likelihood that the Pi can be targeted while conducting digital surveillance, and also to prevent the software from unintentionally selecting the wrong wlan interface on boot.
-We will want to blacklist the WiFi drivers so that they are prevented from loading on boot.
-```
-sudo nano /etc/modprobe.d/raspi-blacklist.conf
-```
-Then, while inside the file, add:
-```
-blacklist brcmfmac
-blacklist brcmutil
-```
 # Setting up a service to run on boot
 
 ## For Digital Surveillance:
@@ -84,3 +73,15 @@ sudo systemctl enable DeauthScript.service
 sudo systemctl stop DeauthScript.service
 ```
 **Do not forget to edit the Deauth Script to include the target MAC addresses recovered from digital surveillance.**
+
+# Disabling onboard WiFi
+When deauthenticating it is important to disable the onboard WiFi on the Pi (which is a broadcom chip, from what I've seen). This is to decrease the likelihood that the Pi can be targeted while conducting its deauthentication, and also to prevent the software from unintentionally selecting the wrong wlan interface on boot. 
+```
+sudo nano /etc/modprobe.d/blacklist-internal-wifi.conf
+```
+Then, while inside the file, add:
+```
+blacklist brcmfmac
+blacklist brcmutil
+```
+**However, note that while these blacklists are in place, the device will be incapable of conducting digital surveillance.**
