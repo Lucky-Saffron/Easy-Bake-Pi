@@ -1,13 +1,6 @@
 # Easy-Bake-Pi
 Quick and easy setup for raspberry-pi wardriving rig.
 
-TO DO 
-1. Requirements for the rig (software and hardware)
-2. Describe process for installing Alfa drivers
-3. Setup kismet.service for auto start (simple command)
-4. Process for identifying the secondary wlan device and blacklisting it (need to look back at the osint computer)
-5. Creating a .service for the DeauthScript.sh and enabling it to run on boot.
-
 # Hardware and Software Requirements 
 The hardware consists of a raspberry pi, preferably a 4 or 5, an Alfa USB external wifi antenna, and a USB GPS puck (optional)
 The software requirements are: KISMET and the AIRCRACK-NG suite of tools (specifically airmon-ng and aireplay-ng), as well as any drivers needed to support the Alfa WiFi card, and/or GPS module.
