@@ -8,7 +8,7 @@ The software requirements are: KISMET and the AIRCRACK-NG suite of tools (specif
 
 # Setting up a service to run on boot
 
-## For Digital Surveillance:
+## For WiFi Surveys:
 Kismet has a built in service (at least when running it from a fresh Kali image), so setting it to run on boot is very simple. 
 ``` 
 sudo systemctl enable kismet
